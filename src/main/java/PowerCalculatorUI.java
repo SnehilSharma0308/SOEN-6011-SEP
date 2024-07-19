@@ -19,7 +19,7 @@ public class PowerCalculatorUI extends Application {
         // Create the UI components
         Label titleLabel = new Label("Exponent Calculator");
         titleLabel.setFont(new Font("Arial", 20));
-        titleLabel.setStyle("-fx-text-fill: #333333; -fx-padding: 10;");
+        titleLabel.setStyle("-fx-background-color: #d3d3d3; -fx-text-fill: #333333; -fx-padding: 10;");
         titleLabel.setAlignment(Pos.CENTER);
 
         Label equationLabel = new Label("xⁿ = ?");
@@ -50,7 +50,7 @@ public class PowerCalculatorUI extends Application {
 
         Label resultValueLabel = new Label();
         resultValueLabel.setFont(new Font("Arial", 16));
-        resultValueLabel.setStyle("-fx-border-color: black; -fx-padding: 10px; -fx-min-width: 100px; -fx-min-height: 30px;");
+        resultValueLabel.setStyle("-fx-border-color: black; -fx-padding: 10px; -fx-min-width: 120px; -fx-min-height: 40px;");
 
         // Add functionality to the buttons
         calculateButton.setOnAction(event -> {
@@ -93,7 +93,7 @@ public class PowerCalculatorUI extends Application {
         VBox mainLayout = new VBox(15, titleLabel, equationLabel, inputGrid, buttonsBox, resultBox);
         mainLayout.setAlignment(Pos.CENTER);
         mainLayout.setPadding(new Insets(10));
-        mainLayout.setStyle("-fx-background-color: #f0f0f0;"); // Light grey background
+        mainLayout.setStyle("-fx-background-color: #FFFFFF;"); // Light grey background
 
         Scene scene = new Scene(mainLayout, 350, 400);
         primaryStage.setScene(scene);
