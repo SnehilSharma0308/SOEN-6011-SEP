@@ -1,14 +1,41 @@
+.main-layout {
+    -fx-background-color: #fff8dc; /* Orange background */
+    -fx-padding: 40;
+    -fx-alignment: center;
+}
+
+.calculator-layout {
+    -fx-background-color: #ffffff; /* White background for the calculator */
+    -fx-padding: 20;
+    -fx-border-color: lightgrey;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, lightgrey, 10, 0, 0, 0);
+}
+
 .button {
     -fx-background-radius: 5;
     -fx-border-radius: 5;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
 }
 
 .button:hover {
     -fx-background-color: #e6e6e6; /* Slightly darker shade for hover effect */
 }
 
+.button-clear {
+    -fx-background-color: #f0ad4e;
+    -fx-text-fill: white;
+}
+
 .button-clear:hover {
     -fx-background-color: #e09950; /* Slightly darker shade for hover effect */
+}
+
+.button-calculate {
+    -fx-background-color: #5cb85c;
+    -fx-text-fill: white;
 }
 
 .button-calculate:hover {
