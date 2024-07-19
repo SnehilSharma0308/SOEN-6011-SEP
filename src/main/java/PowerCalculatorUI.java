@@ -20,7 +20,7 @@ public class PowerCalculatorUI extends Application {
         // Create the UI components
         Label titleLabel = new Label("Exponent Calculator");
         titleLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 20));
-        titleLabel.setStyle("-fx-background-color: #d3d3d3; -fx-text-fill: #333333; -fx-padding: 20;");
+        titleLabel.getStyleClass().add("title-label"); // Apply the new CSS class
         titleLabel.setAlignment(Pos.CENTER);
 
         Label equationLabel = new Label("xʸ = ?");
@@ -99,7 +99,7 @@ public class PowerCalculatorUI extends Application {
         calculatorLayout.setPadding(new Insets(20));
         calculatorLayout.getStyleClass().add("calculator-layout");
 
-        // Set up the main layout with orange background
+        // Set up the main layout with light orange background
         StackPane mainLayout = new StackPane();
         mainLayout.getChildren().add(calculatorLayout);
         mainLayout.getStyleClass().add("main-layout");

@@ -13,6 +13,14 @@
     -fx-effect: dropshadow(three-pass-box, lightgrey, 10, 0, 0, 0);
 }
 
+.title-label {
+    -fx-background-color: #d3d3d3;
+    -fx-text-fill: #333333;
+    -fx-padding: 20;
+    -fx-border-color: black;
+    -fx-border-width: 1px; /* Border for the title */
+}
+
 .button {
     -fx-background-radius: 5;
     -fx-border-radius: 5;
