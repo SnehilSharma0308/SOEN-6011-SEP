@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -18,25 +19,38 @@ public class PowerCalculatorUI extends Application {
         // Create the UI components
         Label titleLabel = new Label("Exponent Calculator");
         titleLabel.setFont(new Font("Arial", 20));
-        titleLabel.setStyle("-fx-background-color: #CD5C5C; -fx-text-fill: white; -fx-padding: 10;");
+        titleLabel.setStyle("-fx-text-fill: #333333; -fx-padding: 10;");
+        titleLabel.setAlignment(Pos.CENTER);
 
         Label equationLabel = new Label("xⁿ = ?");
         equationLabel.setFont(new Font("Arial", 24));
+        equationLabel.setStyle("-fx-text-fill: #333333;");
         equationLabel.setAlignment(Pos.CENTER);
 
         Label labelX = new Label("x =");
+        labelX.setFont(new Font("Arial", 16));
+        labelX.setStyle("-fx-text-fill: #555555;");
         TextField textFieldX = new TextField();
         textFieldX.setPromptText("base");
 
         Label labelY = new Label("n =");
+        labelY.setFont(new Font("Arial", 16));
+        labelY.setStyle("-fx-text-fill: #555555;");
         TextField textFieldY = new TextField();
         textFieldY.setPromptText("exponent");
 
         Button clearButton = new Button("Clear");
+        clearButton.setStyle("-fx-background-color: #f0ad4e; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;");
         Button calculateButton = new Button("Calculate");
+        calculateButton.setStyle("-fx-background-color: #5cb85c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;");
+
         Label resultLabel = new Label("Answer:");
         resultLabel.setFont(new Font("Arial", 16));
-        resultLabel.setPadding(new Insets(10));
+        resultLabel.setStyle("-fx-text-fill: #555555; -fx-padding: 5;");
+
+        Label resultValueLabel = new Label();
+        resultValueLabel.setFont(new Font("Arial", 16));
+        resultValueLabel.setStyle("-fx-border-color: black; -fx-padding: 10px; -fx-min-width: 100px; -fx-min-height: 30px;");
 
         // Add functionality to the buttons
         calculateButton.setOnAction(event -> {
@@ -44,43 +58,44 @@ public class PowerCalculatorUI extends Application {
                 double x = Double.parseDouble(textFieldX.getText());
                 double y = Double.parseDouble(textFieldY.getText());
                 double result = PowerCalculator.calculatePower(x, y);
-                resultLabel.setText("Answer: " + result);
+                resultValueLabel.setText(String.valueOf(result));
             } catch (NumberFormatException e) {
-                resultLabel.setText("Invalid input! Please enter valid numeric values.");
+                resultValueLabel.setText("Invalid input!");
             } catch (Exception e) {
-                resultLabel.setText("Error: " + e.getMessage());
+                resultValueLabel.setText("Error");
             }
         });
 
         clearButton.setOnAction(event -> {
             textFieldX.clear();
             textFieldY.clear();
-            resultLabel.setText("Answer:");
+            resultValueLabel.setText("");
         });
 
         // Set up the layout
-        GridPane grid = new GridPane();
+        GridPane inputGrid = new GridPane();
+        inputGrid.setPadding(new Insets(20, 20, 20, 20));
+        inputGrid.setVgap(15);
+        inputGrid.setHgap(10);
+        inputGrid.setAlignment(Pos.CENTER);
 
-        grid.setPadding(new Insets(20, 20, 20, 20));
-        grid.setVgap(15);
-        grid.setHgap(10);
+        inputGrid.add(labelX, 0, 0);
+        inputGrid.add(textFieldX, 1, 0);
+        inputGrid.add(labelY, 0, 1);
+        inputGrid.add(textFieldY, 1, 1);
 
-        grid.add(titleLabel, 0, 0, 5, 1);
-        grid.add(equationLabel, 1, 1, 2, 1);
-        GridPane.setHalignment(equationLabel, HPos.CENTER);
-        grid.add(labelX, 0, 2);
-        grid.add(textFieldX, 1, 2);
-        grid.add(labelY, 0, 3);
-        grid.add(textFieldY, 1, 3);
-
-        HBox buttonsBox = new HBox(35, clearButton, calculateButton);
+        HBox buttonsBox = new HBox(20, clearButton, calculateButton);
         buttonsBox.setAlignment(Pos.CENTER);
-        grid.add(buttonsBox, 0, 4, 2, 1);
-        GridPane.setHalignment(buttonsBox, HPos.CENTER);
 
-        grid.add(resultLabel, 0, 5, 2, 1);
+        HBox resultBox = new HBox(resultLabel, resultValueLabel);
+        resultBox.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(grid, 250, 350);
+        VBox mainLayout = new VBox(15, titleLabel, equationLabel, inputGrid, buttonsBox, resultBox);
+        mainLayout.setAlignment(Pos.CENTER);
+        mainLayout.setPadding(new Insets(10));
+        mainLayout.setStyle("-fx-background-color: #f0f0f0;"); // Light grey background
+
+        Scene scene = new Scene(mainLayout, 350, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
