@@ -1,0 +1,16 @@
+.button {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #e6e6e6; /* Slightly darker shade for hover effect */
+}
+
+.button-clear:hover {
+    -fx-background-color: #e09950; /* Slightly darker shade for hover effect */
+}
+
+.button-calculate:hover {
+    -fx-background-color: #4cae4c; /* Slightly darker shade for hover effect */
+}
