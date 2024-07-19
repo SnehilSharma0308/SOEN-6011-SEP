@@ -1,5 +1,5 @@
 .main-layout {
-    -fx-background-color: #fff8dc; /* Orange background */
+    -fx-background-color: #fff8dc; /* Light orange background */
     -fx-padding: 40;
     -fx-alignment: center;
 }
@@ -7,9 +7,9 @@
 .calculator-layout {
     -fx-background-color: #ffffff; /* White background for the calculator */
     -fx-padding: 20;
-    -fx-border-color: lightgrey;
-    -fx-border-width: 1px;
-    -fx-border-radius: 5px;
+    -fx-border-color: black;
+    -fx-border-width: 1.5px; /* Thicker border */
+    -fx-border-radius: 10px; /* Rounded corners */
     -fx-effect: dropshadow(three-pass-box, lightgrey, 10, 0, 0, 0);
 }
 
