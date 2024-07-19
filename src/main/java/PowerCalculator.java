@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * A simple calculator for computing power functions (x^y) with special handling for edge cases.
  */
@@ -15,55 +13,6 @@ public class PowerCalculator {
     public PowerCalculator(){
 
     }
-    /**
-     * Main method to run the Power Calculator.
-     * Prompts the user for input values x and y, calculates x^y, and prints the result.
-     * Handles special cases such as 0^0 and negative exponents.
-     * Outputs the result or a message for complex results.
-     *
-     * @param args Command line arguments (not used).
-     */
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println();
-        System.out.println("\t------------------------------------------------------");
-        System.out.println("\t***** SOEN-6011 (Software Engineering Processes) *****");
-        System.out.println("\t   ************  Concordia University  ************");
-        System.out.println();
-        System.out.println("\t  Welcome to the Power Function Calculator (x^y)");
-        System.out.println("\t------------------------------------------------------\n");
-
-        double x = 0, y = 0;
-        boolean validInput = false;
-
-        do {
-            try {
-                System.out.print("\t\t\tEnter the value of x: ");
-                x = Double.parseDouble(scanner.nextLine());
-
-                System.out.print("\t\t\tEnter the value of y: ");
-                y = Double.parseDouble(scanner.nextLine());
-
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("\t\t\tInvalid input! Please enter valid numeric values.\n");
-            }
-        } while (!validInput);
-
-        System.out.println();
-
-        double result = calculatePower(x, y);
-        if (Double.isNaN(result)) {
-            System.out.println("\t\t\t   Complex result: NaN");
-        } else {
-            System.out.println("\t\t\t   Result: " + result);
-        }
-        System.out.println("\t------------------------------------------------------\n");
-
-
-        scanner.close();
-    }
-
 
     /**
      * Calculates x raised to the power of y (x^y).
