@@ -1,10 +1,10 @@
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -13,8 +13,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+/**
+ * PowerCalculatorUI is a JavaFX application for computing the power function x^y.
+ * It provides a user-friendly graphical interface for users to input the base (x) and exponent (y)
+ * and computes the result, handling special cases and displaying errors as needed.
+ */
 public class PowerCalculatorUI extends Application {
 
+    /**
+     * The main entry point for all JavaFX applications. The start method is called after the init method has returned,
+     * and after the system is ready for the application to begin running.
+     *
+     * @param primaryStage the primary stage for this application, onto which the application scene can be set.
+     */
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("SOEN-6011 (Eternity)");
@@ -152,6 +163,12 @@ public class PowerCalculatorUI extends Application {
         primaryStage.show();
     }
 
+    /**
+     * The main method is ignored in correctly deployed JavaFX applications.
+     * main() serves only as fallback in case the application cannot be launched through deployment artifacts, e.g., in IDEs with limited FX support.
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
