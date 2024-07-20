@@ -56,6 +56,10 @@ public class PowerCalculatorUI extends Application {
         resultValueLabel.setFont(new Font("Arial", 16));
         resultValueLabel.setStyle("-fx-border-color: black; -fx-padding: 10px; -fx-min-width: 120px; -fx-min-height: 40px;");
 
+        Label errorLabel = new Label();
+        errorLabel.setFont(new Font("Arial", 14));
+        errorLabel.getStyleClass().add("error-label"); // Apply the new CSS class
+
         // Add functionality to the buttons
         calculateButton.setOnAction(event -> {
             try {
@@ -63,10 +67,11 @@ public class PowerCalculatorUI extends Application {
                 double y = Double.parseDouble(textFieldY.getText());
                 double result = PowerCalculator.calculatePower(x, y);
                 resultValueLabel.setText(String.valueOf(result));
+                errorLabel.setText(""); // Clear any previous error message
             } catch (NumberFormatException e) {
-                resultValueLabel.setText("Invalid input!");
+                errorLabel.setText("Invalid input! Please enter valid numeric values.");
             } catch (Exception e) {
-                resultValueLabel.setText("Error");
+                errorLabel.setText("Error: " + e.getMessage());
             }
         });
 
@@ -74,6 +79,7 @@ public class PowerCalculatorUI extends Application {
             textFieldX.clear();
             textFieldY.clear();
             resultValueLabel.setText("");
+            errorLabel.setText(""); // Clear any previous error message
         });
 
         // Set up the layout for the calculator
@@ -94,7 +100,7 @@ public class PowerCalculatorUI extends Application {
         HBox resultBox = new HBox(resultLabel, resultValueLabel);
         resultBox.setAlignment(Pos.CENTER);
 
-        VBox calculatorLayout = new VBox(15, titleLabel, equationLabel, inputGrid, buttonsBox, resultBox);
+        VBox calculatorLayout = new VBox(15, titleLabel, equationLabel, inputGrid, buttonsBox, resultBox, errorLabel);
         calculatorLayout.setAlignment(Pos.CENTER);
         calculatorLayout.setPadding(new Insets(20));
         calculatorLayout.getStyleClass().add("calculator-layout");

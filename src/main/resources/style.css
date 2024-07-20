@@ -49,3 +49,8 @@
 .button-calculate:hover {
     -fx-background-color: #4cae4c; /* Slightly darker shade for hover effect */
 }
+
+.error-label {
+    -fx-text-fill: red; /* Red text for error messages */
+    -fx-padding: 5;
+}
