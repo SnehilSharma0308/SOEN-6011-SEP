@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,7 +17,7 @@ public class PowerCalculatorUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Exponent Calculator");
+        primaryStage.setTitle("SOEN-6011 (Eternity)");
 
         // Create the UI components
         Label titleLabel = new Label("Exponent Calculator");
@@ -23,7 +25,7 @@ public class PowerCalculatorUI extends Application {
         titleLabel.getStyleClass().add("title-label"); // Apply the new CSS class
         titleLabel.setAlignment(Pos.CENTER);
 
-        Label equationLabel = new Label("xʸ = ?");
+        Label equationLabel = new Label("F7 (xʸ) = ?");
         equationLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 24));
         equationLabel.setStyle("-fx-text-fill: #333333; -fx-padding: 10;");
         equationLabel.setAlignment(Pos.CENTER);
@@ -48,7 +50,7 @@ public class PowerCalculatorUI extends Application {
         calculateButton.getStyleClass().add("button");
         calculateButton.getStyleClass().add("button-calculate");
 
-        Label resultLabel = new Label("Answer:");
+        Label resultLabel = new Label("Result:");
         resultLabel.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         resultLabel.setStyle("-fx-text-fill: #555555; -fx-padding: 5;");
 
@@ -57,21 +59,53 @@ public class PowerCalculatorUI extends Application {
         resultValueLabel.setStyle("-fx-border-color: black; -fx-padding: 10px; -fx-min-width: 120px; -fx-min-height: 40px;");
 
         Label errorLabel = new Label();
-        errorLabel.setFont(new Font("Arial", 14));
-        errorLabel.getStyleClass().add("error-label"); // Apply the new CSS class
+        errorLabel.setFont(new Font("Arial", 16));
+        errorLabel.setStyle("-fx-text-fill: red;"); // Apply style to error label
+
+        // Add listeners to remove the invalid style when user starts typing
+        textFieldX.textProperty().addListener((observable, oldValue, newValue) -> {
+            textFieldX.getStyleClass().remove("text-field-invalid");
+            errorLabel.setText(""); // Clear error message when typing
+        });
+
+        textFieldY.textProperty().addListener((observable, oldValue, newValue) -> {
+            textFieldY.getStyleClass().remove("text-field-invalid");
+            errorLabel.setText(""); // Clear error message when typing
+        });
 
         // Add functionality to the buttons
         calculateButton.setOnAction(event -> {
+            boolean validInput = true;
+            resultValueLabel.setText(""); // Clear the result box
+
             try {
                 double x = Double.parseDouble(textFieldX.getText());
-                double y = Double.parseDouble(textFieldY.getText());
-                double result = PowerCalculator.calculatePower(x, y);
-                resultValueLabel.setText(String.valueOf(result));
-                errorLabel.setText(""); // Clear any previous error message
+                textFieldX.getStyleClass().remove("text-field-invalid"); // Remove invalid style if present
             } catch (NumberFormatException e) {
-                errorLabel.setText("Invalid input! Please enter valid numeric values.");
-            } catch (Exception e) {
-                errorLabel.setText("Error: " + e.getMessage());
+                textFieldX.getStyleClass().add("text-field-invalid"); // Add invalid style
+                validInput = false;
+            }
+
+            try {
+                double y = Double.parseDouble(textFieldY.getText());
+                textFieldY.getStyleClass().remove("text-field-invalid"); // Remove invalid style if present
+            } catch (NumberFormatException e) {
+                textFieldY.getStyleClass().add("text-field-invalid"); // Add invalid style
+                validInput = false;
+            }
+
+            if (validInput) {
+                try {
+                    double x = Double.parseDouble(textFieldX.getText());
+                    double y = Double.parseDouble(textFieldY.getText());
+                    double result = PowerCalculator.calculatePower(x, y);
+                    resultValueLabel.setText(String.valueOf(result));
+                    errorLabel.setText(""); // Clear any previous error message
+                } catch (Exception e) {
+                    errorLabel.setText("Error: " + e.getMessage());
+                }
+            } else {
+                errorLabel.setText("Invalid input! Please enter valid real numbers.");
             }
         });
 
@@ -80,6 +114,8 @@ public class PowerCalculatorUI extends Application {
             textFieldY.clear();
             resultValueLabel.setText("");
             errorLabel.setText(""); // Clear any previous error message
+            textFieldX.getStyleClass().remove("text-field-invalid");
+            textFieldY.getStyleClass().remove("text-field-invalid");
         });
 
         // Set up the layout for the calculator
