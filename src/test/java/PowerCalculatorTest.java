@@ -1,6 +1,33 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * Test class for the {@link PowerCalculator} class.
+ * <p>
+ * This class contains unit tests to verify the correctness and robustness of the
+ * power function implemented in the {@link PowerCalculator} class. The tests cover
+ * various scenarios including positive and negative bases, integer and fractional exponents,
+ * zero bases, special cases, and edge cases to ensure the implementation behaves as expected.
+ * </p>
+ * <p>
+ * The test cases are written using the JUnit framework and cover the following scenarios:
+ * <ul>
+ *   <li>Positive and negative exponents</li>
+ *   <li>Fractional exponents</li>
+ *   <li>Zero base with varying exponents</li>
+ *   <li>Large and small values</li>
+ *   <li>Special cases (e.g., 0^0, negative base with fractional exponent)</li>
+ * </ul>
+ * Each test case uses assertions to compare the actual output of the power function
+ * to the expected output calculated using Java's built-in {@link Math#pow(double, double)} method.
+ * </p>
+ * <p>
+ * The tests ensure that the power function handles edge cases correctly, providing
+ * reliable and precise results for all valid inputs and appropriate responses for invalid inputs.
+ * </p>
+ *
+ * @see PowerCalculator
+ */
 public class PowerCalculatorTest {
 
     @Test
