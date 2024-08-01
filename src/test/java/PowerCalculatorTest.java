@@ -1,5 +1,7 @@
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 
 /**
  * Test class for the {@link PowerCalculator} class.
@@ -31,7 +33,7 @@ import static org.junit.Assert.*;
 public class PowerCalculatorTest {
 
     @Test
-    public void testCalculatePowerPositiveExponent() {
+    public void calculatePower_withPositiveExponent_returnsExpectedResult() {
         double x = 2.0;
         double y = 10.0;
         double expected = Math.pow(x, y);
@@ -40,7 +42,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerNegativeExponent() {
+    public void calculatePower_withNegativeExponent_returnsExpectedResult() {
         double x = 2.0;
         double y = -10.0;
         double expected = Math.pow(x, y);
@@ -49,7 +51,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerFractionalExponent() {
+    public void calculatePower_withFractionalExponent_returnsExpectedResult() {
         double x = 4.0;
         double y = 0.5;
         double expected = Math.pow(x, y);
@@ -58,7 +60,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerZeroExponent() {
+    public void calculatePower_withZeroExponent_returnsExpectedResult() {
         double x = 5.0;
         double y = 0.0;
         double expected = Math.pow(x, y);
@@ -67,7 +69,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerZeroBase() {
+    public void calculatePower_withZeroBase_returnsExpectedResult() {
         double x = 0.0;
         double y = 5.0;
         double expected = Math.pow(x, y);
@@ -76,7 +78,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerLargeValues() {
+    public void calculatePower_withLargeValues_returnsExpectedResult() {
         double x = 99.0;
         double y = 38.0;
         double result = PowerCalculator.calculatePower(x, y);
@@ -84,7 +86,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerSmallValues() {
+    public void calculatePower_withSmallValues_returnsExpectedResult() {
         double x = 0.2;
         double y = 1.4;
         double result = PowerCalculator.calculatePower(x, y);
@@ -92,7 +94,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerPositiveIntegerExponent() {
+    public void calculatePower_withPositiveIntegerExponent_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, 10.0), PowerCalculator.calculatePower(2.0, 10.0), 1e-12);
         assertEquals(Math.pow(4.0, 3.0), PowerCalculator.calculatePower(4.0, 3.0), 1e-12);
         assertEquals(Math.pow(99.0, 0.0), PowerCalculator.calculatePower(99.0, 0.0), 1e-12);
@@ -102,7 +104,7 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerNegativeIntegerExponent() {
+    public void calculatePower_withNegativeIntegerExponent_returnsExpectedResult() {
         assertEquals(0.0009765625, PowerCalculator.calculatePower(2.0, -10.0), 1e-12);
         assertEquals(0.015625, PowerCalculator.calculatePower(4.0, -3.0), 1e-12);
         assertEquals(1.0, PowerCalculator.calculatePower(99.0, -0.0), 1e-12);
@@ -112,118 +114,117 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerFractionalExponent2() {
+    public void calculatePower_withFractionalExponent2_returnsExpectedResult() {
         assertEquals(Math.pow(4.0, 0.5), PowerCalculator.calculatePower(4.0, 0.5), 1e-12);
         assertEquals(Math.pow(16.0, -0.5), PowerCalculator.calculatePower(16.0, -0.5), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerVerySmallFractionExponent3() {
+    public void calculatePower_withVerySmallFractionExponent3_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, 0.1), PowerCalculator.calculatePower(2.0, 0.1), 1e-12);
         assertEquals(Math.pow(5.0, -0.3), PowerCalculator.calculatePower(5.0, -0.3), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerFractionalExponent4() {
+    public void calculatePower_withFractionalExponent4_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, 0.1), PowerCalculator.calculatePower(2.0, 0.1), 1e-12);
         assertEquals(Math.pow(5.0, 0.75), PowerCalculator.calculatePower(5.0, 0.75), 1e-12);
         assertEquals(Math.pow(16.0, -0.5), PowerCalculator.calculatePower(16.0, -0.5), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerVerySmallFractionExponent() {
+    public void calculatePower_withVerySmallFractionExponent_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, 0.0001), PowerCalculator.calculatePower(2.0, 0.0001), 1e-12);
         assertEquals(Math.pow(5.0, -0.0003), PowerCalculator.calculatePower(5.0, -0.0003), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerVerySmallXValues() {
+    public void calculatePower_withVerySmallXValues_returnsExpectedResult() {
         assertEquals(1.0, PowerCalculator.calculatePower(1e-10, 0.0), 1e-12);
         assertEquals(Math.pow(1e-6, 3.0), PowerCalculator.calculatePower(1e-6, 3.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeSmallFractions() {
+    public void calculatePower_withNegativeSmallFractions_returnsExpectedResult() {
         assertEquals(Math.pow(-2.5, 2.5), PowerCalculator.calculatePower(-2.5, 2.5), 1e-12);
         assertEquals(Math.pow(-2.0, 0.5), PowerCalculator.calculatePower(-2.0, 0.5), 1e-12);
         assertEquals(Math.pow(-0.9, -0.9), PowerCalculator.calculatePower(-0.9, -0.9), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerPositiveSmallFractions() {
+    public void calculatePower_withPositiveSmallFractions_returnsExpectedResult() {
         assertEquals(Math.pow(0.9, -5.0), PowerCalculator.calculatePower(0.9, -5.0), 1e-12);
         assertEquals(Math.pow(10.0, -0.5), PowerCalculator.calculatePower(10.0, -0.5), 1e-12);
         assertEquals(Math.pow(1.8, 0.5), PowerCalculator.calculatePower(1.8, 0.5), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeLargeFractions() {
+    public void calculatePower_withNegativeLargeFractions_returnsExpectedResult() {
         assertEquals(Math.pow(-2.0, -2.0), PowerCalculator.calculatePower(-2.0, -2.0), 1e-12);
         assertEquals(Math.pow(-1.5, -0.5), PowerCalculator.calculatePower(-1.5, -0.5), 1e-12);
         assertEquals(Math.pow(-2.5, 0.5), PowerCalculator.calculatePower(-2.5, 0.5), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerSpecialCases() {
+    public void calculatePower_withSpecialCases_returnsExpectedResult() {
         assertEquals(1.0, PowerCalculator.calculatePower(0.0, 0.0), 1e-12);
         assertEquals(Double.POSITIVE_INFINITY, PowerCalculator.calculatePower(0.0, -5.0), 1e-12);
         assertEquals(0.0, PowerCalculator.calculatePower(0.001, 1000.0), 1e-12);
         assertEquals(0.0, PowerCalculator.calculatePower(0.00001, 5.0), 1e-12);
     }
 
-    // Additional test cases to make a total of 30
     @Test
-    public void testCalculatePowerNegativeBasePositiveEvenExponent() {
+    public void calculatePower_withNegativeBasePositiveEvenExponent_returnsExpectedResult() {
         assertEquals(Math.pow(-3.0, 2.0), PowerCalculator.calculatePower(-3.0, 2.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeBasePositiveOddExponent() {
+    public void calculatePower_withNegativeBasePositiveOddExponent_returnsExpectedResult() {
         assertEquals(Math.pow(-3.0, 3.0), PowerCalculator.calculatePower(-3.0, 3.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeBaseNegativeEvenExponent() {
+    public void calculatePower_withNegativeBaseNegativeEvenExponent_returnsExpectedResult() {
         assertEquals(Math.pow(-3.0, -2.0), PowerCalculator.calculatePower(-3.0, -2.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeBaseNegativeOddExponent() {
+    public void calculatePower_withNegativeBaseNegativeOddExponent_returnsExpectedResult() {
         assertEquals(Math.pow(-3.0, -3.0), PowerCalculator.calculatePower(-3.0, -3.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerPositiveBaseLargeExponent() {
+    public void calculatePower_withPositiveBaseLargeExponent_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, 100.0), PowerCalculator.calculatePower(2.0, 100.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerPositiveBaseSmallNegativeExponent() {
+    public void calculatePower_withPositiveBaseSmallNegativeExponent_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, -0.1), PowerCalculator.calculatePower(2.0, -0.1), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeBaseSmallPositiveExponent() {
+    public void calculatePower_withNegativeBaseSmallPositiveExponent_returnsExpectedResult() {
         assertEquals(Math.pow(-2.0, 0.1), PowerCalculator.calculatePower(-2.0, 0.1), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerZeroBaseNegativeExponent() {
+    public void calculatePower_withZeroBaseNegativeExponent_returnsExpectedResult() {
         assertEquals(Double.POSITIVE_INFINITY, PowerCalculator.calculatePower(0.0, -1.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerZeroExponentPositiveBase() {
+    public void calculatePower_withZeroExponentPositiveBase_returnsExpectedResult() {
         assertEquals(1.0, PowerCalculator.calculatePower(5.0, 0.0), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerPositiveBaseFractionalNegativeExponent() {
+    public void calculatePower_withPositiveBaseFractionalNegativeExponent_returnsExpectedResult() {
         assertEquals(Math.pow(2.0, -0.5), PowerCalculator.calculatePower(2.0, -0.5), 1e-12);
     }
 
     @Test
-    public void testCalculatePowerNegativeBasePositiveFractionalExponent() {
+    public void calculatePower_withNegativeBasePositiveFractionalExponent_returnsNaN() {
         double x = -4.0;
         double y = 0.5;
         double expected = Double.NaN; // Since negative base raised to a fractional exponent is undefined in real numbers
@@ -232,10 +233,100 @@ public class PowerCalculatorTest {
     }
 
     @Test
-    public void testCalculatePowerPositiveBaseVerySmallNegativeExponent() {
+    public void calculatePower_withPositiveBaseVerySmallNegativeExponent_returnsExpectedResult() {
         double x = 2.0;
         double y = -0.0001;
         double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withNegativeBasePositiveFractionExponent_returnsNaN() {
+        double x = -3.0;
+        double y = 0.3333; // Cube root of -3, which is not a real number
+        double expected = Double.NaN;
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withNegativeExponentVerySmallBase_returnsLargeResult() {
+        double x = 1e-10;
+        double y = -1.0;
+        double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withVeryLargeExponent_returnsExpectedResult() {
+        double x = 1.1;
+        double y = 1e6;
+        double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withExponentCloseToZero_returnsExpectedResult() {
+        double x = 2.0;
+        double y = 1e-15; // Exponent close to zero
+        double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withNegativeBaseEvenFractionExponent_returnsNaN() {
+        double x = -16.0;
+        double y = 0.25; // Fourth root of -16, which is not a real number
+        double expected = Double.NaN;
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withFractionalBasePositiveExponent_returnsExpectedResult() {
+        double x = 0.5;
+        double y = 3.0;
+        double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withFractionalBaseNegativeExponent_returnsExpectedResult() {
+        double x = 0.5;
+        double y = -3.0;
+        double expected = Math.pow(x, y);
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withPositiveBaseZeroFractionalExponent_returnsExpectedResult() {
+        double x = 10.0;
+        double y = 0.0;
+        double expected = Math.pow(x, y); // Any number to the power of zero is 1
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withZeroBaseFractionalExponent_returnsZero() {
+        double x = 0.0;
+        double y = 0.5;
+        double expected = 0.0; // Zero to any positive power is zero
+        double result = PowerCalculator.calculatePower(x, y);
+        assertEquals(expected, result, 1e-12);
+    }
+
+    @Test
+    public void calculatePower_withNegativeExponentFractionalBase_returnsExpectedResult() {
+        double x = 0.1;
+        double y = -1.0;
+        double expected = Math.pow(x, y); // Should return 10
         double result = PowerCalculator.calculatePower(x, y);
         assertEquals(expected, result, 1e-12);
     }
