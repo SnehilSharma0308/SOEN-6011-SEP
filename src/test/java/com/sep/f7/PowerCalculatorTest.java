@@ -1,3 +1,5 @@
+package com.sep.f7;
+
 import com.sep.f7.PowerCalculator;
 import org.junit.Test;
 
