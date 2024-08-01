@@ -1,7 +1,7 @@
-# com.sep.f7.PowerCalculator Project
+# PowerCalculator Project
 
 ## Overview
-The com.sep.f7.PowerCalculator project is a Java-based application that calculates the power of a number (x^y) with custom implementation, error handling, and a graphical user interface (GUI) using JavaFX. This project adheres to semantic versioning and follows industry best practices for code quality and testing.
+The PowerCalculator project is a Java-based application that calculates the power of a number (x^y) with custom implementation, error handling, and a graphical user interface (GUI) using JavaFX. This project adheres to semantic versioning and follows industry best practices for code quality and testing.
 
 ## Version
 Current Version: 1.0.0

@@ -60,4 +60,7 @@ public final class UIConstants {
      * CSS class name for marking text fields with invalid input.
      */
     public static final String TEXT_FIELD_INVALID = "text-field-invalid";
+
+    /** Default font used in the UI. */
+    public static final String DEFAULT_FONT = "Arial";
 }

@@ -15,8 +15,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import static com.sep.f7.UIConstants.GRID_PADDING;
-import static com.sep.f7.UIConstants.TEXT_FIELD_INVALID;
+import static com.sep.f7.UIConstants.*;
+import static com.sep.f7.UIConstants.DEFAULT_FONT;
 
 /**
  * com.sep.f7.PowerCalculatorUI is a JavaFX application
@@ -40,26 +40,26 @@ public class PowerCalculatorUI extends Application {
     public void start(final Stage primaryStage) {
         primaryStage.setTitle("SOEN-6011 (Eternity)");
         Label titleLabel = new Label("Exponent Calculator");
-        titleLabel.setFont(Font.font("Arial", FontWeight.NORMAL,
+        titleLabel.setFont(Font.font(DEFAULT_FONT, FontWeight.NORMAL,
                 UIConstants.TITLE_FONT_SIZE));
         titleLabel.getStyleClass().add("title-label");
         titleLabel.setAlignment(Pos.CENTER);
 
         Label equationLabel = new Label("F7 (xʸ) = ?");
-        equationLabel.setFont(Font.font("Arial", FontWeight.NORMAL,
+        equationLabel.setFont(Font.font(DEFAULT_FONT, FontWeight.NORMAL,
                 UIConstants.EQUATION_FONT_SIZE));
         equationLabel.setStyle("-fx-text-fill: #333333; -fx-padding: 10;");
         equationLabel.setAlignment(Pos.CENTER);
 
         Label labelX = new Label("x =");
-        labelX.setFont(Font.font("Arial", FontWeight.BOLD,
+        labelX.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD,
                 UIConstants.LABEL_FONT_SIZE));
         labelX.setStyle("-fx-text-fill: #555555;");
         TextField textFieldX = new TextField();
         textFieldX.setPromptText("base");
 
         Label labelY = new Label("y =");
-        labelY.setFont(Font.font("Arial", FontWeight.BOLD,
+        labelY.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD,
                 UIConstants.LABEL_FONT_SIZE));
         labelY.setStyle("-fx-text-fill: #555555;");
         TextField textFieldY = new TextField();
@@ -74,12 +74,12 @@ public class PowerCalculatorUI extends Application {
         calculateButton.getStyleClass().add("button-calculate");
 
         Label resultLabel = new Label("Result:");
-        resultLabel.setFont(Font.font("Arial", FontWeight.BOLD,
+        resultLabel.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD,
                 UIConstants.RESULT_FONT_SIZE));
         resultLabel.setStyle("-fx-text-fill: #555555; -fx-padding: 5;");
 
         Label resultValueLabel = new Label();
-        resultValueLabel.setFont(new Font("Arial",
+        resultValueLabel.setFont(new Font(DEFAULT_FONT,
                 UIConstants.RESULT_FONT_SIZE));
         resultValueLabel.setStyle(
                 "-fx-border-color: black; -fx-padding: 10px;"
@@ -87,7 +87,7 @@ public class PowerCalculatorUI extends Application {
                         + "px; -fx-min-height: "
                         + UIConstants.RESULT_MIN_HEIGHT + "px;");
         Label errorLabel = new Label();
-        errorLabel.setFont(new Font("Arial", UIConstants.ERROR_FONT_SIZE));
+        errorLabel.setFont(new Font(DEFAULT_FONT, UIConstants.ERROR_FONT_SIZE));
         errorLabel.setStyle("-fx-text-fill: red;");
 
         // Add listeners to remove the invalid style when user starts typing
