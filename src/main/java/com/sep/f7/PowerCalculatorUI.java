@@ -15,8 +15,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import static com.sep.f7.UIConstants.*;
 import static com.sep.f7.UIConstants.DEFAULT_FONT;
+import static com.sep.f7.UIConstants.GRID_PADDING;
+import static com.sep.f7.UIConstants.TEXT_FIELD_INVALID;
 
 /**
  * com.sep.f7.PowerCalculatorUI is a JavaFX application
