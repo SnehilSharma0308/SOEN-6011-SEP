@@ -109,14 +109,14 @@ public class PowerCalculatorUI extends Application {
             resultValueLabel.setText(""); // Clear the result box
 
             try {
-                double x = Double.parseDouble(textFieldX.getText());
+                Double.parseDouble(textFieldX.getText());
                 textFieldX.getStyleClass().remove(TEXT_FIELD_INVALID);
             } catch (NumberFormatException e) {
                 textFieldX.getStyleClass().add(TEXT_FIELD_INVALID);
                 validInput = false;
             }
             try {
-                double y = Double.parseDouble(textFieldY.getText());
+                Double.parseDouble(textFieldY.getText());
                 textFieldY.getStyleClass().remove(TEXT_FIELD_INVALID);
             } catch (NumberFormatException e) {
                 textFieldY.getStyleClass().add(TEXT_FIELD_INVALID);
