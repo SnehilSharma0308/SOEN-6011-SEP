@@ -16,6 +16,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import static com.sep.f7.UIConstants.GRID_PADDING;
+import static com.sep.f7.UIConstants.TEXT_FIELD_INVALID;
 
 /**
  * com.sep.f7.PowerCalculatorUI is a JavaFX application
@@ -92,13 +93,13 @@ public class PowerCalculatorUI extends Application {
         // Add listeners to remove the invalid style when user starts typing
         textFieldX.textProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    textFieldX.getStyleClass().remove("text-field-invalid");
+                    textFieldX.getStyleClass().remove(TEXT_FIELD_INVALID);
                     errorLabel.setText(""); // Clear error message when typing
                 });
 
         textFieldY.textProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    textFieldY.getStyleClass().remove("text-field-invalid");
+                    textFieldY.getStyleClass().remove(TEXT_FIELD_INVALID);
                     errorLabel.setText(""); // Clear error message when typing
                 });
 
@@ -108,16 +109,16 @@ public class PowerCalculatorUI extends Application {
 
             try {
                 double x = Double.parseDouble(textFieldX.getText());
-                textFieldX.getStyleClass().remove("text-field-invalid");
+                textFieldX.getStyleClass().remove(TEXT_FIELD_INVALID);
             } catch (NumberFormatException e) {
-                textFieldX.getStyleClass().add("text-field-invalid");
+                textFieldX.getStyleClass().add(TEXT_FIELD_INVALID);
                 validInput = false;
             }
             try {
                 double y = Double.parseDouble(textFieldY.getText());
-                textFieldY.getStyleClass().remove("text-field-invalid");
+                textFieldY.getStyleClass().remove(TEXT_FIELD_INVALID);
             } catch (NumberFormatException e) {
-                textFieldY.getStyleClass().add("text-field-invalid");
+                textFieldY.getStyleClass().add(TEXT_FIELD_INVALID);
                 validInput = false;
             }
             if (validInput) {
@@ -143,8 +144,8 @@ public class PowerCalculatorUI extends Application {
             textFieldY.clear();
             resultValueLabel.setText("");
             errorLabel.setText(""); // Clear any previous error message
-            textFieldX.getStyleClass().remove("text-field-invalid");
-            textFieldY.getStyleClass().remove("text-field-invalid");
+            textFieldX.getStyleClass().remove(TEXT_FIELD_INVALID);
+            textFieldY.getStyleClass().remove(TEXT_FIELD_INVALID);
         });
 
         GridPane inputGrid = new GridPane();

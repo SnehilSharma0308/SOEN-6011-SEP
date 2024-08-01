@@ -55,4 +55,9 @@ public final class UIConstants {
 
     /** Height of the main scene. */
     public static final int SCENE_HEIGHT = 600;
+
+    /**
+     * CSS class name for marking text fields with invalid input.
+     */
+    public static final String TEXT_FIELD_INVALID = "text-field-invalid";
 }
