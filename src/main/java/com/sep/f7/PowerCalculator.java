@@ -1,17 +1,28 @@
+package com.sep.f7;
+
 /**
- * A simple calculator for computing power functions (x^y) with special handling for edge cases.
+ * A simple calculator for computing power functions (x^y)
+ * with special handling for edge cases.
  */
 public class PowerCalculator {
 
     /**
-     * Constructs a new PowerCalculator.
-     * <p>
-     * This constructor initializes a new instance of the PowerCalculator class,
-     * which provides methods for computing power functions (x^y) with special
-     * handling for edge cases such as 0^0 and negative exponents.
+     * The precision used for calculations in the Taylor series expansion.
+     * This value determines the accuracy of the logarithm
+     * and exponential computations.
      */
-    public PowerCalculator(){
+    private static final double PRECISION = 1e-15;
 
+    /**
+     * Constructs a new com.sep.f7.PowerCalculator.
+     * <p>
+     * This constructor initializes a new instance of the
+     * com.sep.f7.PowerCalculator class which provides methods
+     * for computing power functions (x^y) with special handling
+     * for edge cases such as 0^0 and negative exponents.
+     */
+    public PowerCalculator() {
+        //contructor for instantiang objects
     }
 
     /**
@@ -23,7 +34,7 @@ public class PowerCalculator {
      * @param y The exponent value.
      * @return The result of x raised to the power of y.
      */
-    public static double calculatePower(double x, double y) {
+    public double calculatePower(final double x, final double y) {
         if (x == 0.0) {
             if (y == 0.0) {
                 return 1.0;
@@ -47,14 +58,16 @@ public class PowerCalculator {
     }
 
     /**
-     * Calculates x raised to the power of an integer exponent (x^y) where y is an integer.
-     * Uses iterative multiplication for positive exponents and division for negative exponents.
+     * Calculates x raised to the power of an integer exponent
+     * (x^y) where y is an integer.
+     * Uses iterative multiplication for positive exponents and
+     * division for negative exponents.
      *
      * @param x The base value.
      * @param y The integer exponent value.
      * @return The result of x raised to the power of y.
      */
-    public static double calculatePowerIntegerExponent(double x, int y) {
+    public double calculatePowerIntegerExponent(final double x, final int y) {
         double result = 1.0;
         int absExponent = abs(y);
 
@@ -66,29 +79,31 @@ public class PowerCalculator {
     }
 
     /**
-     * Computes the natural logarithm (ln) of a given positive double value using the Taylor series expansion.
+     * Computes the natural logarithm (ln) of a given positive
+     * double value using the Taylor series expansion.
      * Handles precision and edge cases for logarithm calculation.
      *
-     * @param x The value for which logarithm is to be calculated.
+     * @param exp The value for which logarithm is to be calculated.
      * @return The natural logarithm of x.
      * @throws IllegalArgumentException If x is non-positive.
      */
-    public static double log(double x) {
-        if (x <= 0.0) {
-            throw new IllegalArgumentException("Logarithm undefined for non-positive values");
+    public double log(final double exp) {
+        if (exp <= 0.0) {
+            throw new IllegalArgumentException(
+                    "Logarithm undefined for non-positive values"
+            );
         }
 
         double result = 0.0;
         double term;
         int n = 1;
-        double precision = 1e-15;
-
+        double x = exp;
         // Using Taylor series for ln(1 + z) where z = (x-1)/(x+1)
         if (x > 0 && x < 1) {
             x = 1 / x;
             term = (x - 1) / (x + 1);
             double z = term;
-            while (abs(term) > precision) {
+            while (abs(term) > PRECISION) {
                 result += 2 * term / n;
                 term *= z * z;
                 n += 2;
@@ -97,7 +112,7 @@ public class PowerCalculator {
         } else {
             term = (x - 1) / (x + 1);
             double z = term;
-            while (abs(term) > precision) {
+            while (abs(term) > PRECISION) {
                 result += 2 * term / n;
                 term *= z * z;
                 n += 2;
@@ -108,12 +123,13 @@ public class PowerCalculator {
 
     /**
      * Computes the exponential function (e^x) using Taylor series expansion.
-     * Calculates the sum of the series until the terms become smaller than a specified precision.
+     * Calculates the sum of the series until the terms become smaller
+     * than a specified precision.
      *
      * @param x The exponent value.
      * @return The result of e raised to the power of x.
      */
-    public static double exp(double x) {
+    public double exp(final double x) {
         double result = 1.0;
         double term = 1.0;
         int n = 1;
@@ -134,7 +150,7 @@ public class PowerCalculator {
      * @param value The integer value.
      * @return The absolute value of the integer.
      */
-    public static int abs(int value) {
+    public int abs(final int value) {
         return (value < 0) ? -value : value;
     }
 
@@ -144,7 +160,7 @@ public class PowerCalculator {
      * @param value The double value.
      * @return The absolute value of the double.
      */
-    public static double abs(double value) {
+    public double abs(final double value) {
         return (value < 0.0) ? -value : value;
     }
 }

@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > PowerCalculatorUI</title>
+  <title>Coverage Report > com.sep.f7.PowerCalculatorUI</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,7 +22,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">&lt;empty package name&gt;</a>
 </div>
 
-<h1>Coverage Summary for Class: PowerCalculatorUI (&lt;empty package name&gt;)</h1>
+<h1>Coverage Summary for Class: com.sep.f7.PowerCalculatorUI (&lt;empty package name&gt;)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -41,7 +41,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">PowerCalculatorUI</td>
+  <td class="name">com.sep.f7.PowerCalculatorUI</td>
 <td class="coverageStat">
   <span class="percent">
     0%
@@ -91,11 +91,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;import javafx.stage.Stage;
 &nbsp;
 &nbsp;/**
-&nbsp; * PowerCalculatorUI is a JavaFX application for computing the power function x^y.
+&nbsp; * com.sep.f7.PowerCalculatorUI is a JavaFX application for computing the power function x^y.
 &nbsp; * It provides a user-friendly graphical interface for users to input the base (x) and exponent (y)
 &nbsp; * and computes the result, handling special cases and displaying errors as needed.
 &nbsp; */
-<b class="nc">&nbsp;public class PowerCalculatorUI extends Application {</b>
+<b class="nc">&nbsp;public class com.sep.f7.PowerCalculatorUI extends Application {</b>
 &nbsp;
 &nbsp;    /**
 &nbsp;     * The main entry point for all JavaFX applications. The start method is called after the init method has returned,
@@ -186,7 +186,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;                try {
 <b class="nc">&nbsp;                    double x = Double.parseDouble(textFieldX.getText());</b>
 <b class="nc">&nbsp;                    double y = Double.parseDouble(textFieldY.getText());</b>
-<b class="nc">&nbsp;                    double result = PowerCalculator.calculatePower(x, y);</b>
+<b class="nc">&nbsp;                    double result = com.sep.f7.PowerCalculator.calculatePower(x, y);</b>
 <b class="nc">&nbsp;                    resultValueLabel.setText(String.valueOf(result));</b>
 <b class="nc">&nbsp;                    errorLabel.setText(&quot;&quot;); // Clear any previous error message</b>
 <b class="nc">&nbsp;                } catch (Exception e) {</b>

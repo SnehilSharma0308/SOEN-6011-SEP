@@ -1,3 +1,5 @@
+package com.sep.f7;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,20 +16,24 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
- * PowerCalculatorUI is a JavaFX application for computing the power function x^y.
- * It provides a user-friendly graphical interface for users to input the base (x) and exponent (y)
- * and computes the result, handling special cases and displaying errors as needed.
+ * com.sep.f7.PowerCalculatorUI is a JavaFX application
+ * for computing the power function x^y.
+ * It provides a user-friendly graphical interface for
+ * users to input the base (x) and exponent (y).
+ * and computes the result, handling special cases
+ * and displaying errors as needed.
  */
 public class PowerCalculatorUI extends Application {
 
     /**
-     * The main entry point for all JavaFX applications. The start method is called after the init method has returned,
+     * The main entry point for all JavaFX applications.
+     * The start method is called after the init method has returned,
      * and after the system is ready for the application to begin running.
      *
      * @param primaryStage the primary stage for this application, onto which the application scene can be set.
      */
     @Override
-    public void start(Stage primaryStage) {
+    public void start(final Stage primaryStage) {
         primaryStage.setTitle("SOEN-6011 (Eternity)");
 
         // Create the UI components
@@ -109,7 +115,8 @@ public class PowerCalculatorUI extends Application {
                 try {
                     double x = Double.parseDouble(textFieldX.getText());
                     double y = Double.parseDouble(textFieldY.getText());
-                    double result = PowerCalculator.calculatePower(x, y);
+                    PowerCalculator powerCalculator = new PowerCalculator();
+                    double result = powerCalculator.calculatePower(x, y);
                     resultValueLabel.setText(String.valueOf(result));
                     errorLabel.setText(""); // Clear any previous error message
                 } catch (Exception e) {
@@ -158,7 +165,7 @@ public class PowerCalculatorUI extends Application {
         mainLayout.getStyleClass().add("main-layout");
 
         Scene scene = new Scene(mainLayout, 500, 600);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/com/sep/f7/style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
