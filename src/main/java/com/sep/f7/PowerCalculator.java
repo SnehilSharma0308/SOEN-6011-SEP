@@ -133,9 +133,8 @@ public class PowerCalculator {
         double result = 1.0;
         double term = 1.0;
         int n = 1;
-        double precision = 1e-15;
 
-        while (abs(term) > precision) {
+        while (abs(term) > PRECISION) {
             term *= x / n;
             result += term;
             n++;
