@@ -46,10 +46,10 @@ public class PowerCalculatorTest {
 
     @Test
     public void calculatePower_withNegativeExponent_returnsExpectedResult() {
-        double x = 2.0;
-        double y = -10.0;
-        double expected = Math.pow(x, y);
-        double result = powerCalculator.calculatePower(x, y);
+        double base = 2.0;
+        double exp = -10.0;
+        double expected = Math.pow(base, exp);
+        double result = powerCalculator.calculatePower(base, exp);
         assertEquals(expected, result, 1e-12);
     }
 
@@ -228,19 +228,19 @@ public class PowerCalculatorTest {
 
     @Test
     public void calculatePower_withNegativeBasePositiveFractionalExponent_returnsNaN() {
-        double x = -4.0;
-        double y = 0.5;
+        double base = -4.0;
+        double exp = 0.5;
         double expected = Double.NaN; // Since negative base raised to a fractional exponent is undefined in real numbers
-        double result = powerCalculator.calculatePower(x, y);
+        double result = powerCalculator.calculatePower(base, exp);
         assertEquals(expected, result, 1e-12);
     }
 
     @Test
     public void calculatePower_withPositiveBaseVerySmallNegativeExponent_returnsExpectedResult() {
-        double x = 2.0;
-        double y = -0.0001;
-        double expected = Math.pow(x, y);
-        double result = powerCalculator.calculatePower(x, y);
+        double base = 2.0;
+        double exp = -0.0001;
+        double expected = Math.pow(base, exp);
+        double result = powerCalculator.calculatePower(base, exp);
         assertEquals(expected, result, 1e-12);
     }
 
@@ -255,10 +255,10 @@ public class PowerCalculatorTest {
 
     @Test
     public void calculatePower_withNegativeExponentVerySmallBase_returnsLargeResult() {
-        double x = 1e-10;
-        double y = -1.0;
-        double expected = Math.pow(x, y);
-        double result = powerCalculator.calculatePower(x, y);
+        double base = 1e-10;
+        double exp = -1.0;
+        double expected = Math.pow(base, exp);
+        double result = powerCalculator.calculatePower(base, exp);
         assertEquals(expected, result, 1e-12);
     }
 
