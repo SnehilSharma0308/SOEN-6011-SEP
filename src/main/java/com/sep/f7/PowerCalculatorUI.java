@@ -19,7 +19,7 @@ import static com.sep.f7.UIConstants.GRID_PADDING;
 
 /**
  * com.sep.f7.PowerCalculatorUI is a JavaFX application
- * for computing the power function x^y.
+ * for computing the power function x^y .
  * It provides a user-friendly graphical interface for
  * users to input the base (x) and exponent (y).
  * and computes the result, handling special cases
