@@ -21,3 +21,35 @@ Current Version: 1.0.0
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/SnehilSharma0308/SOEN-6011-SEP.git
+
+2. **Build the project using Maven:**
+   ```sh
+   mvn clean install
+3. ***Run the application:**
+   ``` sh
+   mvn javafx:run
+
+## Usage
+1. **Start the application:**
+   - Run the main class Launcher to start the application.
+
+2. **Using the GUI:**
+
+   - Enter the base value (x) in the first text field.
+   - Enter the exponent value (y) in the second text field.
+   - Click the "Calculate" button to compute the result.
+   - The result will be displayed in the result area.
+   - Click the "Clear" button to reset the input fields and result.
+
+## Code Quality and Testing
+
+1. **JUnit Testing:**
+- Extensive unit tests are written using JUnit.
+- Run the tests:
+   ```sh
+  mvn test
+
+## Contact
+For any questions or feedback, please contact: 
+```sh 
+snehilsharma0308@gmail.com
