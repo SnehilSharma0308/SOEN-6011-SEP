@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.scene.control.Tooltip;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
@@ -63,15 +64,27 @@ public class PowerCalculatorUI extends Application {
         equationLabel.setStyle("-fx-text-fill: #333333; -fx-padding: 10;");
         equationLabel.setAlignment(Pos.CENTER);
 
-        Label labelX = new Label("x =");
+        Label labelX = new Label("X");
         labelX.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD, LABEL_FONT_SIZE));
         labelX.setStyle("-fx-text-fill: #555555;");
+        Label asteriskX = new Label("*");
+        asteriskX.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD, 12)); // Smaller size for the asterisk
+        asteriskX.setStyle("-fx-text-fill: red;");
+        HBox labelXContainer = new HBox(labelX, asteriskX);
+        labelXContainer.setSpacing(2);
+
         TextField textFieldX = new TextField();
         textFieldX.setPromptText("base");
 
-        Label labelY = new Label("y =");
+        Label labelY = new Label("Y");
         labelY.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD, LABEL_FONT_SIZE));
         labelY.setStyle("-fx-text-fill: #555555;");
+        Label asteriskY = new Label("*");
+        asteriskY.setFont(Font.font(DEFAULT_FONT, FontWeight.BOLD, 12)); // Smaller size for the asterisk
+        asteriskY.setStyle("-fx-text-fill: red;");
+        HBox labelYContainer = new HBox(labelY, asteriskY);
+        labelYContainer.setSpacing(2);
+
         TextField textFieldY = new TextField();
         textFieldY.setPromptText("exponent");
 
@@ -116,6 +129,18 @@ public class PowerCalculatorUI extends Application {
         Label errorLabel = new Label();
         errorLabel.setFont(new Font(DEFAULT_FONT, ERROR_FONT_SIZE));
         errorLabel.setStyle("-fx-text-fill: red;");
+
+        // Add question mark icon for base (x)
+        Button infoButtonX = new Button("?");
+        infoButtonX.setStyle("-fx-font-size: 16; -fx-padding: 0 4 0 4; -fx-min-width: 24px;");
+        Tooltip infoTooltipX = new Tooltip("Base (x): The number that is going to be raised to the power of the exponent.");
+        infoButtonX.setTooltip(infoTooltipX);
+
+        // Add question mark icon for exponent (y)
+        Button infoButtonY = new Button("?");
+        infoButtonY.setStyle("-fx-font-size: 16; -fx-padding: 0 4 0 4; -fx-min-width: 24px;");
+        Tooltip infoTooltipY = new Tooltip("Exponent (y): The power to which the base number is raised.");
+        infoButtonY.setTooltip(infoTooltipY);
 
         // Add listeners to remove the invalid style when user starts typing
         textFieldX.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -181,10 +206,12 @@ public class PowerCalculatorUI extends Application {
         inputGrid.setHgap(GRID_HGAP);
         inputGrid.setAlignment(Pos.CENTER);
 
-        inputGrid.add(labelX, 0, 0);
+        inputGrid.add(labelXContainer, 0, 0);
         inputGrid.add(textFieldX, 1, 0);
-        inputGrid.add(labelY, 0, 1);
+        inputGrid.add(infoButtonX, 2, 0);
+        inputGrid.add(labelYContainer, 0, 1);
         inputGrid.add(textFieldY, 1, 1);
+        inputGrid.add(infoButtonY, 2, 1);
 
         HBox buttonsBox = new HBox(BUTTON_SPACING, clearButton, calculateButton);
         buttonsBox.setAlignment(Pos.CENTER);
