@@ -1,0 +1,73 @@
+/* high-contrast.css */
+.main-layout {
+    -fx-background-color: #000000; /* Black background */
+    -fx-padding: 40;
+    -fx-alignment: center;
+}
+
+.calculator-layout {
+    -fx-background-color: #ffffff; /* White background for the calculator */
+    -fx-padding: 20;
+    -fx-border-color: #ffffff; /* White border */
+    -fx-border-width: 2px; /* Thicker border */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, lightgrey, 10, 0, 0, 0);
+}
+
+.title-label {
+    -fx-background-color: #000000; /* Black background */
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-padding: 20;
+    -fx-border-color: #ffffff; /* White border */
+    -fx-border-width: 1px;
+}
+
+.button {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+}
+
+.button:hover {
+    -fx-background-color: #e6e6e6; /* Slightly darker shade for hover effect */
+}
+
+.button-clear {
+    -fx-background-color: #ff6347; /* Darker red for high contrast */
+    -fx-text-fill: white;
+}
+
+.button-clear:hover {
+    -fx-background-color: #e55a3c; /* Slightly darker shade for hover effect */
+}
+
+.button-calculate {
+    -fx-background-color: #32cd32; /* Darker green for high contrast */
+    -fx-text-fill: white;
+}
+
+.button-calculate:hover {
+    -fx-background-color: #2bb22b; /* Slightly darker shade for hover effect */
+}
+
+.error-label {
+    -fx-text-fill: red; /* Red text for error messages */
+    -fx-padding: 5;
+}
+
+.text-field-invalid {
+    -fx-border-color: red;
+    -fx-border-width: 1px;
+}
+
+.toggle-button {
+    -fx-background-color: #007acc; /* Blue for accessibility button */
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #005999; /* Darker blue on hover */
+}
