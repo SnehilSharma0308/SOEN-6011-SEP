@@ -14,6 +14,31 @@ public final class UIConstants {
         // Prevent instantiation
     }
 
+    /**
+     * Speaker image location.
+     */
+    public static final String SPEAKER_IMAGE = "/com/sep/f7/speaker1.png";
+
+    /**
+     * Regular style sheet location.
+     */
+    public static final String STYLE_SHEET = "/com/sep/f7/style.css";
+
+    /**
+     * High contrast sheet location.
+     */
+    public static final String HIGH_CONTRAST = "/com/sep/f7/high-contrast.css";
+
+    /**
+     * Space between result box.
+     */
+    public static final double RESULT_SPACE = 10;
+
+    /**
+     * Size of the asterisk for GUI.
+     */
+    public static final double ASTERISK_SIZE = 12;
+
     /** Font size for the title label. */
     public static final int TITLE_FONT_SIZE = 20;
 
