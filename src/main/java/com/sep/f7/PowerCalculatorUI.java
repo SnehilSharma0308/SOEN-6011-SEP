@@ -347,8 +347,6 @@ public class PowerCalculatorUI extends Application {
             voice.allocate();
             voice.speak(text);
             voice.deallocate();
-        } else {
-            System.out.println("Voice not found: " + VOICE_NAME);
         }
     }
 
