@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.sep.f7","l":"Launcher"},{"p":"com.sep.f7","l":"PowerCalculator"},{"p":"com.sep.f7","l":"PowerCalculatorUI"},{"p":"com.sep.f7","l":"UIConstants"}];updateSearchResults();
